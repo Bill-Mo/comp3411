@@ -1,0 +1,5 @@
+A. 
+The schedule is not conflict serialisable. In the case is a conflict between T3:R(B) and T1:W(B), giving a graph edge from T3 to T1. In the case is a conflict between T1:R(B) and T3:W(B), giving a graph edge from T1 to T3. This means the graph has a cycle, so the schedule is not serializable.
+
+B. 
+The schedule is not view serialisable. in the schedule, T1 read B before T3 write B and write B after T3 write B. Neither T1 process first nor T3 process first can have the same effect.

@@ -1,0 +1,15 @@
+A. 
+Tmp1(id) = Sel[id>2200000]Member
+Res(name, id) = Person Join[Person.id = Tmp1.id]Tmp1
+
+B.
+Tmp1(member) = Sel[discount=0.0]MemberJoin
+Res(name, id) = Person Join[Person.id=Tmp2.member]Tmp2
+
+C.
+Tmp1 = Proj[term]TrainingClass
+Tmp2(TrainingClass.term, Attend.member) = Attend Join[Attend.class=TrainingClass.code, Attend.attendence!=0] TrainingClass
+Tmp3 = Tmp2/Tmp1
+Tmp4(member) = Sel[term='22T1']Tmp2
+Tmp5 = Tmp3-Tmp4
+Res(name, id) = Person Join[Person.id=Tmp5.member]Tmp5

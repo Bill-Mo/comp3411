@@ -1,0 +1,28 @@
+1.
+The relations are {Person, Membership, Coach, Member, TrainingClass, MemberJoin, Attend}. FDs are Person->(Coach, Member), TrainingClass->(Coach), (Member, Membership)->MemberJoin, (Member, TrainingClass)->Attend. The key is (Person, TrainingClass, MemberJoin). All FDs violate BCNF, so it is not in BCNF.
+2.
+A.
+(1). The attributes are ABCDEFGH. FDs are A->BCD, B->H, C->DE, E->F. The key is AG. A->BCD violates BCNF, LHS is partial key, so partition
+(2a). The attributes are ABCD. FD is A->BCD. The key is A. No FD violate BCNF, so ABC is part of solution
+(2b).The attributes are AEFG. FD is E->F. The key is AEG. E->F violates BCNF, LHS is partial key, so partition
+(3a). The attributes are EF. FD is E->F. The key is E. No FD violate BCNF, so EF is part of solution
+(3b).The attributes are AG. No FDs. The key is AG. No FD violate BCNF, so AG is part of solution
+Solution: ABCD, EF, AG.
+
+B.
+(1). The attributes are ABCDEFGH. FDs are A->CH, D->EG, B->F. The key is ABD. A->CH violates BCNF, LHS is partial key, so partition
+(2a). The attributes are ACH. FD is A->CH. The key is A. No FD violate BCNF, so ACH is part of solution
+(2b).The attributes are ABDEFG. FDs are D->EG, B->F. The key is ABD.  D->EG violates BCNF, LHS is partial key, so partition
+(3a). The attributes are DEG. FD is D->EG. The key is D. No FD violate BCNF, so DEG is part of solution
+(3b).The attributes are ABDF. FD is B->F. The key is ABD.  B->F violates BCNF, LHS is partial key, so partition
+(4a). The attributes are BF. FD is B->F. The key is B. No FD violate BCNF, so BF is part of solution
+(4b).The attributes are AD. No FDs. The key is AD.  No FD violate BCNF, so AD is part of solution
+Solution: ACH, DEG, BF, AD.
+
+C.
+(1). The attributes are ABCDEFGH. FDs are ABC->D, D->EH, F->ADG. The key is BCF. ABC->D violates BCNF, LHS is not a key, so partition
+(2a). The attributes are ABCD. FD is ABC->D. The key is ABC. No FD violate BCNF, so ABCD is part of solution
+(2b).The attributes are ABCEFGH. FD is F->AG. The key is BCEFH.  F->AG violates BCNF, LHS is partial key, so partition
+(3a). The attributes are AFG. FD is F->AG. The key is F. No FD violate BCNF, so AFG is part of solution
+(3b).The attributes are BCEFH. No FDs. The key is BCEFH. No FD violate BCNF, so BCEFH is part of solution
+Solution: ABCD, AFG, BCEFH.
